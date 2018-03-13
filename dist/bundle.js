@@ -1493,28 +1493,28 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var BAcon = function (_React$Component) {
-    _inherits(BAcon, _React$Component);
+var Movie = function (_React$Component) {
+    _inherits(Movie, _React$Component);
 
-    function BAcon() {
-        _classCallCheck(this, BAcon);
+    function Movie() {
+        _classCallCheck(this, Movie);
 
-        return _possibleConstructorReturn(this, (BAcon.__proto__ || Object.getPrototypeOf(BAcon)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Movie.__proto__ || Object.getPrototypeOf(Movie)).apply(this, arguments));
     }
 
-    _createClass(BAcon, [{
+    _createClass(Movie, [{
         key: "render",
         value: function render() {
-            return _react2.default.createElement("div", null, _react2.default.createElement("h3", null, "Tis"), _react2.default.createElement("p", null, "Runnnnnnnnnnn"));
+            return _react2.default.createElement("div", null, _react2.default.createElement("h1", null, this.props.title), _react2.default.createElement("h2", null, this.props.genre));
         }
     }]);
 
-    return BAcon;
+    return Movie;
 }(_react2.default.Component);
 
 ;
 
-_reactDom2.default.render(_react2.default.createElement("div", null, _react2.default.createElement(BAcon, null), _react2.default.createElement(BAcon, null), _react2.default.createElement(BAcon, null)), document.getElementById('example'));
+_reactDom2.default.render(_react2.default.createElement("div", null, _react2.default.createElement(Movie, { title: "Avatar", genre: "action" }), _react2.default.createElement(Movie, { title: "Neon", genre: "thriller" }), _react2.default.createElement(Movie, { title: "Mara are mere", genre: "fantasy" })), document.getElementById('example'));
 
 /***/ }),
 /* 23 */
