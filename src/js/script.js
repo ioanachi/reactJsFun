@@ -1,28 +1,34 @@
 import React from "react";
 import ReactDOM from "react-dom";
-class Component extends React.Component {
-    edit(){
-        alert("Editing Comment")
-    }
-    remove(){
-        alert("Removing Comment")
-    }
+class Checkbox extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            checked:true
+        }
+        this.getInitialState=this.getInitialState.bind(this);
+      }
+   getInitialState(){
+      this.setState ({checked:false});
+   }
     render(){
+        var msg;
+        if(this.state.checked){
+            msg="checked"
+        }else{
+            msg="unchecked"
+        }
         return (
         <div className="commentContainer">
-            <div className="commentText">{this.props.children}</div>
-            <button onClick={this.edit} className="button-primary">Edit</button>
-            <button onClick={this.remove} className="button-danger">remove</button>
+            <input onInput={getInitialState} type="checkbox" />
+            <h3>Checkbox is {msg}</h3>
         </div>);
     }
 };
 
 
 ReactDOM.render(
-<div className="board">
-<Component> Hey now</Component>
-<Component> Beans</Component>
-<Component> Tuna</Component>
-<Component> Rush</Component>
+<div>
+<Checkbox /> 
         </div>, 
         document.getElementById('example'));

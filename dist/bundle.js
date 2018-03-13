@@ -1493,38 +1493,45 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Component = function (_React$Component) {
-    _inherits(Component, _React$Component);
+var Checkbox = function (_React$Component) {
+    _inherits(Checkbox, _React$Component);
 
-    function Component() {
-        _classCallCheck(this, Component);
+    function Checkbox(props) {
+        _classCallCheck(this, Checkbox);
 
-        return _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
+
+        _this.state = {
+            checked: true
+        };
+        _this.getInitialState = _this.getInitialState.bind(_this);
+        return _this;
     }
 
-    _createClass(Component, [{
-        key: "edit",
-        value: function edit() {
-            alert("Editing Comment");
-        }
-    }, {
-        key: "remove",
-        value: function remove() {
-            alert("Removing Comment");
+    _createClass(Checkbox, [{
+        key: "getInitialState",
+        value: function getInitialState() {
+            this.setState({ checked: false });
         }
     }, {
         key: "render",
         value: function render() {
-            return _react2.default.createElement("div", { className: "commentContainer" }, _react2.default.createElement("div", { className: "commentText" }, this.props.children), _react2.default.createElement("button", { onClick: this.edit, className: "button-primary" }, "Edit"), _react2.default.createElement("button", { onClick: this.remove, className: "button-danger" }, "remove"));
+            var msg;
+            if (this.state.checked) {
+                msg = "checked";
+            } else {
+                msg = "unchecked";
+            }
+            return _react2.default.createElement("div", { className: "commentContainer" }, _react2.default.createElement("input", { onInput: getInitialState, type: "checkbox" }), _react2.default.createElement("h3", null, "Checkbox is ", msg));
         }
     }]);
 
-    return Component;
+    return Checkbox;
 }(_react2.default.Component);
 
 ;
 
-_reactDom2.default.render(_react2.default.createElement("div", { className: "board" }, _react2.default.createElement(Component, null, " Hey now"), _react2.default.createElement(Component, null, " Beans"), _react2.default.createElement(Component, null, " Tuna"), _react2.default.createElement(Component, null, " Rush")), document.getElementById('example'));
+_reactDom2.default.render(_react2.default.createElement("div", null, _react2.default.createElement(Checkbox, null)), document.getElementById('example'));
 
 /***/ }),
 /* 23 */
