@@ -9,7 +9,7 @@ class Checkbox extends React.Component {
         this.getInitialState=this.getInitialState.bind(this);
       }
    getInitialState(){
-      this.setState ({checked:false});
+      this.setState ({checked:!this.state.checked});
    }
     render(){
         var msg;
@@ -20,7 +20,7 @@ class Checkbox extends React.Component {
         }
         return (
         <div className="commentContainer">
-            <input onInput={getInitialState} type="checkbox" />
+            <input onChange={()=>this.getInitialState()} defaultChecked={this.state.checked}  type="checkbox" />
             <h3>Checkbox is {msg}</h3>
         </div>);
     }

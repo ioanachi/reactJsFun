@@ -1511,18 +1511,22 @@ var Checkbox = function (_React$Component) {
     _createClass(Checkbox, [{
         key: "getInitialState",
         value: function getInitialState() {
-            this.setState({ checked: false });
+            this.setState({ checked: !this.state.checked });
         }
     }, {
         key: "render",
         value: function render() {
+            var _this2 = this;
+
             var msg;
             if (this.state.checked) {
                 msg = "checked";
             } else {
                 msg = "unchecked";
             }
-            return _react2.default.createElement("div", { className: "commentContainer" }, _react2.default.createElement("input", { onInput: getInitialState, type: "checkbox" }), _react2.default.createElement("h3", null, "Checkbox is ", msg));
+            return _react2.default.createElement("div", { className: "commentContainer" }, _react2.default.createElement("input", { onChange: function onChange() {
+                    return _this2.getInitialState();
+                }, defaultChecked: this.state.checked, type: "checkbox" }), _react2.default.createElement("h3", null, "Checkbox is ", msg));
         }
     }]);
 
