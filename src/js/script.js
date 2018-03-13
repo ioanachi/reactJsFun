@@ -1,20 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
-class Movie extends React.Component {
+class Component extends React.Component {
+    edit(){
+        alert("Editing Comment")
+    }
+    remove(){
+        alert("Removing Comment")
+    }
     render(){
         return (
-        <div>
-            <h1>{this.props.title}</h1>
-            <h2>{this.props.genre}</h2>
+        <div className="commentContainer">
+            <div className="commentText">{this.props.children}</div>
+            <button onClick={this.edit} className="button-primary">Edit</button>
+            <button onClick={this.remove} className="button-danger">remove</button>
         </div>);
     }
 };
 
 
 ReactDOM.render(
-<div>
-<Movie title="Avatar" genre="action" />
-<Movie title="Neon" genre="thriller" />
-<Movie title="Mara are mere" genre="fantasy" />
+<div className="board">
+<Component> Hey now</Component>
+<Component> Beans</Component>
+<Component> Tuna</Component>
+<Component> Rush</Component>
         </div>, 
         document.getElementById('example'));

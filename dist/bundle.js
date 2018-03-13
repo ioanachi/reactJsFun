@@ -932,7 +932,7 @@ exports = module.exports = __webpack_require__(19)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#container {\n  margin: 10px; }\n  #container button.create {\n    margin-bottom: 8px; }\n  #container .board {\n    background-color: #b9def0;\n    height: 100%;\n    padding: 4px; }\n    #container .board .commentContainer {\n      background: #eee;\n      border: 1px solid #ccc;\n      display: inline-block;\n      margin: 8px;\n      padding: 8px; }\n      #container .board .commentContainer .comment {\n        font-size: 1.1em;\n        font-weight: 500;\n        margin-bottom: 10px; }\n      #container .board .commentContainer button {\n        margin-right: 6px; }\n      #container .board .commentContainer textarea {\n        display: block;\n        margin-bottom: 10px; }\n", ""]);
 
 // exports
 
@@ -1493,28 +1493,38 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Movie = function (_React$Component) {
-    _inherits(Movie, _React$Component);
+var Component = function (_React$Component) {
+    _inherits(Component, _React$Component);
 
-    function Movie() {
-        _classCallCheck(this, Movie);
+    function Component() {
+        _classCallCheck(this, Component);
 
-        return _possibleConstructorReturn(this, (Movie.__proto__ || Object.getPrototypeOf(Movie)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).apply(this, arguments));
     }
 
-    _createClass(Movie, [{
+    _createClass(Component, [{
+        key: "edit",
+        value: function edit() {
+            alert("Editing Comment");
+        }
+    }, {
+        key: "remove",
+        value: function remove() {
+            alert("Removing Comment");
+        }
+    }, {
         key: "render",
         value: function render() {
-            return _react2.default.createElement("div", null, _react2.default.createElement("h1", null, this.props.title), _react2.default.createElement("h2", null, this.props.genre));
+            return _react2.default.createElement("div", { className: "commentContainer" }, _react2.default.createElement("div", { className: "commentText" }, this.props.children), _react2.default.createElement("button", { onClick: this.edit, className: "button-primary" }, "Edit"), _react2.default.createElement("button", { onClick: this.remove, className: "button-danger" }, "remove"));
         }
     }]);
 
-    return Movie;
+    return Component;
 }(_react2.default.Component);
 
 ;
 
-_reactDom2.default.render(_react2.default.createElement("div", null, _react2.default.createElement(Movie, { title: "Avatar", genre: "action" }), _react2.default.createElement(Movie, { title: "Neon", genre: "thriller" }), _react2.default.createElement(Movie, { title: "Mara are mere", genre: "fantasy" })), document.getElementById('example'));
+_reactDom2.default.render(_react2.default.createElement("div", { className: "board" }, _react2.default.createElement(Component, null, " Hey now"), _react2.default.createElement(Component, null, " Beans"), _react2.default.createElement(Component, null, " Tuna"), _react2.default.createElement(Component, null, " Rush")), document.getElementById('example'));
 
 /***/ }),
 /* 23 */
